@@ -1,4 +1,4 @@
-import TruffleStorage from './contracts/CryptoTruffles.json';
+import CryptoTruffles from './contracts/CryptoTruffles.json';
 
 const options = {
     web3: {

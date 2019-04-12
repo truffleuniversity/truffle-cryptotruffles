@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
+import { Drizzle, generateStore } from 'drizzle';
+import { DrizzleContext } from 'drizzle-react';
+
+import drizzleOptions from './drizzleOptions';
+import loadingComponent from './LoadingComponent';
+
 import logo from './logo.svg';
 import './App.css';
+import { isObject } from 'util';
+import LoadingComponent from './LoadingComponent';
+import CryptoTruffles from './CryptoTruffles';
+
+const drizzleStore = generateStore(drizzleOptions);
+const drizzle = new Drizzle(drizzleOptions, drizzleStore);
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <DrizzleContext.Provider drizzle={drizzle}>
+        <LoadingComponent>
+          <div className="App">
+            <h1>CryptoTruffles</h1>
+            <CryptoTruffles />
+          </div>
+        </LoadingComponent>
+      </DrizzleContext.Provider>
     );
   }
 }
