@@ -9,6 +9,7 @@ contract CryptoTruffles is ERC721, Ownable {
 
   // Array to store the truffles
   Truffle[] truffles;
+  uint[] truffleIds;
 
   constructor() public {
   }
@@ -36,6 +37,15 @@ contract CryptoTruffles is ERC721, Ownable {
     uint _truffleId = truffles.push(_truffle) - 1;
 
     _mint(msg.sender, _truffleId);
+    truffleIds.push(_truffleId);
+  }
+
+  /**
+  * @dev Returns the identifiers of the minted Truffles
+  * @return  array of uints
+  */
+  function getTruffleIds() public view returns (uint[] memory) {
+    return truffleIds;
   }
 
   /**
