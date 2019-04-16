@@ -15,10 +15,15 @@ import Grid from '@material-ui/core/Grid';
 const styles = {
   card: {
     maxWidth: 345,
+    backgroundColor: "#5E464D"
   },
   media: {
-    height: 120,
+    height: 160,
+    width: 140
   },
+  title: {
+    color: "#fff"
+  }
 };
 
 class AllTruffles extends Component {
@@ -54,17 +59,17 @@ class AllTruffles extends Component {
           <CardActionArea>
             <CardMedia
               className={classes.media}
-              image=""
+              image={`/truffles/${emotion}.png`}
               title={title}
             />
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
                 {title}
               </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small" color="primary">
+            <Button size="small">
               Share
             </Button>
           </CardActions>
