@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import withDrizzle from './DrizzleContainer';
+import withDrizzle from '../DrizzleContainer';
 
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -19,7 +19,7 @@ const styles = {
   },
   media: {
     height: 160,
-    width: 140
+    width: 180
   },
   title: {
     color: "#fff"

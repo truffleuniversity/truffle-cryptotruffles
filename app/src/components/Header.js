@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import withDrizzle from './DrizzleContainer';
+import withDrizzle from '../DrizzleContainer';
 
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
@@ -8,7 +8,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 
-import logo from './logo.svg';
+import logo from '../logo.svg';
 
 const styles = {
   root: {

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import withDrizzle from './DrizzleContainer';
+import withDrizzle from '../DrizzleContainer';
 import Truffle from './Truffle';
 
 import Grid from '@material-ui/core/Grid';
@@ -35,6 +35,7 @@ class Truffles extends Component {
         return (
             <Fragment>
                 <Grid item xs={12}>
+                    <h2>The Collection</h2>
                     <p>There are {truffles.length} truffles in the collection.</p>
                 </Grid>
                 <Grid container className={classes.root} justify="center" spacing={16}>
