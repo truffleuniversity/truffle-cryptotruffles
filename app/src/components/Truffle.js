@@ -27,7 +27,7 @@ const styles = {
 };
 
 class AllTruffles extends Component {
-  constructor(props, context) {
+  constructor(props) {
     super(props);
 
     const { CryptoTruffles } = this.props.drizzle.contracts;

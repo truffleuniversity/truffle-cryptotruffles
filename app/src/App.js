@@ -9,6 +9,7 @@ import './App.css';
 import LoadingComponent from './LoadingComponent';
 import Header from './components/Header';
 import AllTruffles from './components/AllTruffles';
+import MyTruffles from './components/MyTruffles';
 
 const drizzleStore = generateStore(drizzleOptions);
 const drizzle = new Drizzle(drizzleOptions, drizzleStore);
@@ -24,6 +25,7 @@ class App extends Component {
           <div className="App">
             <Header />
             <AllTruffles />
+            <MyTruffles />
           </div>
         </LoadingComponent>
       </DrizzleContext.Provider>

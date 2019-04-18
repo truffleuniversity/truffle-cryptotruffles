@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import withDrizzle from '../DrizzleContainer';
+
 import Truffle from './Truffle';
 
 import Grid from '@material-ui/core/Grid';
@@ -10,12 +11,12 @@ const styles = theme => ({
     }
   });
 
-class Truffles extends Component {
+class MyTruffles extends Component {
     constructor(props) {
         super(props);
 
         const { CryptoTruffles } = this.props.drizzle.contracts;
-        this.dataKey = CryptoTruffles.methods.getTruffleIds.cacheCall();
+        this.dataKey = CryptoTruffles.methods.tokensOfOwner.cacheCall(this.props.drizzleState.accounts[0]);
     }
 
     render() {
@@ -23,21 +24,20 @@ class Truffles extends Component {
         const { classes } = this.props;
         const { CryptoTruffles } = this.props.drizzleState.contracts;
 
-        if(!(this.dataKey in CryptoTruffles.getTruffleIds)) {
+        if(!(this.dataKey in CryptoTruffles.tokensOfOwner)) {
             return (
               <span>Loading...</span>
             )
           }
 
-        const truffles = CryptoTruffles.getTruffleIds[this.dataKey].value.map(function(e){
+        const truffles = CryptoTruffles.tokensOfOwner[this.dataKey].value.map(function(e){
             return (<Truffle truffleId={e} key={e} />);
         })
 
-        return (
+        return(
             <Fragment>
                 <Grid item xs={12}>
-                    <h2>The Collection</h2>
-                    <p>There are {truffles.length} Truffles in the collection.</p>
+                    <h2>My Truffles</h2>
                 </Grid>
                 <Grid container className={classes.root} justify="center" spacing={16}>
                     {truffles}
@@ -47,4 +47,4 @@ class Truffles extends Component {
     }
 }
 
-export default withStyles(styles)(withDrizzle(Truffles));
+export default withStyles(styles)(withDrizzle(MyTruffles));
