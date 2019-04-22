@@ -65,7 +65,7 @@ class AllTruffles extends Component {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
-                {title}
+                {title} ({color})
               </Typography>
             </CardContent>
           </CardActionArea>

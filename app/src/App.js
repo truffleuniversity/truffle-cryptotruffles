@@ -3,11 +3,13 @@ import { Drizzle, generateStore } from 'drizzle';
 import { DrizzleContext } from 'drizzle-react';
 import drizzleOptions from './drizzleOptions';
 
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import './App.css';
 
 import LoadingComponent from './LoadingComponent';
 import Header from './components/Header';
+import Home from './components/Home';
 import AllTruffles from './components/AllTruffles';
 import MyTruffles from './components/MyTruffles';
 
@@ -17,15 +19,18 @@ const drizzle = new Drizzle(drizzleOptions, drizzleStore);
 class App extends Component {
 
   render() {
-    const { classes } = this.props;
-
     return (
       <DrizzleContext.Provider drizzle={drizzle}>
         <LoadingComponent>
           <div className="App">
-            <Header />
-            <AllTruffles />
-            <MyTruffles />
+            <Router>
+              <div>
+                <Header />
+                <Route exact path="/" component={Home} />
+                <Route path="/collection" component={AllTruffles} />
+                <Route path="/my" component={MyTruffles} />
+              </div>
+            </Router>
           </div>
         </LoadingComponent>
       </DrizzleContext.Provider>

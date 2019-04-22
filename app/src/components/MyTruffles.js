@@ -10,7 +10,6 @@ const styles = theme => ({
     root: {
     }
   });
-
 class MyTruffles extends Component {
     constructor(props) {
         super(props);
@@ -42,7 +41,7 @@ class MyTruffles extends Component {
                     <h2>My Truffles</h2>
                 </Grid>
                 <Grid container className={classes.root} justify="center" spacing={16}>
-                    {truffles.length !== 0 ? truffles : (<p>You don't currently have any Truffles. 😢</p>)}
+                    {truffles.length !== 0 ? truffles : (<p>You don't currently have any Truffles. <span role="img" aria-label="sad">😢</span></p>)}
                 </Grid>
             </Fragment>
         );
