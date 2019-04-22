@@ -27,7 +27,7 @@ const styles = {
   }
 };
 
-class AllTruffles extends Component {
+class Truffle extends Component {
   constructor(props) {
     super(props);
 
@@ -80,9 +80,9 @@ class AllTruffles extends Component {
   }
 }
 
-AllTruffles.propTypes = {
+Truffle.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
 
-export default withStyles(styles)(withDrizzle(AllTruffles));
+export default withStyles(styles)(withDrizzle(Truffle));
