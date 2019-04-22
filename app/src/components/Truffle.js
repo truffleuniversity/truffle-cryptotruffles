@@ -15,14 +15,15 @@ import Grid from '@material-ui/core/Grid';
 const styles = {
   card: {
     maxWidth: 345,
-    backgroundColor: "#5E464D"
+    backgroundColor: "#fff"
   },
   media: {
     height: 160,
-    width: 180
+    width: 180,
+    marginTop: 20
   },
   title: {
-    color: "#fff"
+    color: "#5E464D"
   }
 };
 

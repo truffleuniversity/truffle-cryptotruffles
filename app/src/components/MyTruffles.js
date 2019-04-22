@@ -30,7 +30,9 @@ class MyTruffles extends Component {
             )
           }
 
-        const truffles = CryptoTruffles.tokensOfOwner[this.dataKey].value.map(function(e){
+        const tokens = CryptoTruffles.tokensOfOwner[this.dataKey].value;
+
+        const truffles = tokens.map(function(e){
             return (<Truffle truffleId={e} key={e} />);
         })
 
@@ -40,7 +42,7 @@ class MyTruffles extends Component {
                     <h2>My Truffles</h2>
                 </Grid>
                 <Grid container className={classes.root} justify="center" spacing={16}>
-                    {truffles}
+                    {truffles.length !== 0 ? truffles : (<p>You don't currently have any Truffles. 😢</p>)}
                 </Grid>
             </Fragment>
         );
