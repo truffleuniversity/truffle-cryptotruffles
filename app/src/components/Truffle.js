@@ -12,6 +12,8 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
+import { Link } from 'react-router-dom';
+
 const styles = {
   card: {
     maxWidth: 345,
@@ -23,7 +25,8 @@ const styles = {
     marginTop: 20
   },
   title: {
-    color: "#5E464D"
+    color: "#5E464D",
+    textDecoration: "none"
   }
 };
 
@@ -58,20 +61,28 @@ class Truffle extends Component {
       <Grid item>
         <Card className={classes.card}>
           <CardActionArea>
-            <CardMedia
-              className={classes.media}
-              image={`/truffles/${emotion}.png`}
-              title={title}
-            />
+            <Link to={`/truffle/${this.props.truffleId}`}>
+              <CardMedia
+                className={classes.media}
+                image={`/truffles/${emotion}.png`}
+                title={title}
+              />
+            </Link>
             <CardContent>
-              <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
-                {title} ({color})
-              </Typography>
+            <Typography 
+              gutterBottom 
+              variant="h5" 
+              component="h2"
+              className={classes.title}
+              component={Link} 
+              to={`/truffle/${this.props.truffleId}`}>
+                {title}
+            </Typography>
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <Button size="small">
-              Share
+            <Button size="small" component={Link} to={`/truffle/${this.props.truffleId}`}>
+              View Truffle
             </Button>
           </CardActions>
         </Card>

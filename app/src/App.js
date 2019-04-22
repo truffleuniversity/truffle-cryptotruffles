@@ -10,8 +10,9 @@ import './App.css';
 import LoadingComponent from './LoadingComponent';
 import Header from './components/Header';
 import Home from './components/Home';
-import AllTruffles from './components/AllTruffles';
+import Collection from './components/Collection';
 import MyTruffles from './components/MyTruffles';
+import TruffleDetail from './components/TruffleDetail';
 
 const drizzleStore = generateStore(drizzleOptions);
 const drizzle = new Drizzle(drizzleOptions, drizzleStore);
@@ -27,8 +28,9 @@ class App extends Component {
               <div>
                 <Header />
                 <Route exact path="/" component={Home} />
-                <Route path="/collection" component={AllTruffles} />
+                <Route path="/collection" component={Collection} />
                 <Route path="/my" component={MyTruffles} />
+                <Route path="/truffle/:id" component={TruffleDetail} />
               </div>
             </Router>
           </div>
