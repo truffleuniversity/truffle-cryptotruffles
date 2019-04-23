@@ -82,7 +82,10 @@ class Truffle extends Component {
           </CardActionArea>
           <CardActions>
             <Button size="small" component={Link} to={`/truffle/${this.props.truffleId}`}>
-              View Truffle
+              View
+            </Button>
+            <Button size="small" component={Link} to={`/transfer/${this.props.truffleId}`}>
+              Transfer
             </Button>
           </CardActions>
         </Card>
