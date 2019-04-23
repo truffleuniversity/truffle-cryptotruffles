@@ -9,3 +9,12 @@
   height: 4vmin;
   pointer-events: none;
 }
+
+.Home-logo {
+  height: 24vmin;
+}
+
+a {
+  color: #3FDFC5;
+  text-decoration: none;
+}
