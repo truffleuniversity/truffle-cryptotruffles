@@ -1,7 +1,8 @@
 import React from 'react';
-import withDrizzle from './DrizzleContainer';
+import withDrizzle from '../DrizzleContainer';
 
 const LoadingComponent = ({initialized, children}) => {
+    console.log(children);
     if (initialized === false) {
         return 'Loading...';
     }

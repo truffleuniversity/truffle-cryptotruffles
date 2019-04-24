@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import './App.css';
 
-import LoadingComponent from './LoadingComponent';
+import LoadingComponent from './components/LoadingComponent';
 import Header from './components/Header';
 import Home from './components/Home';
 import Collection from './components/Collection';
