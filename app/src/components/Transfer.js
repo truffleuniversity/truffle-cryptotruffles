@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import withDrizzle from '../DrizzleContainer';
 
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';

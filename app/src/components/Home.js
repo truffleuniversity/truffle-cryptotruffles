@@ -18,8 +18,6 @@ const Home = (props) => {
                 <p><img src={collection} className="Home-logo" alt="Collect them all" /></p>
                 <p>Contract Address: {contract.address}</p>
             </Grid>
-            
-            
         </Fragment>
     )
 }

@@ -15,7 +15,9 @@ const styles = {
     maxWidth: 460,
     backgroundColor: "#fff",
     paddingTop: 20,
-    marginTop: 20
+    marginTop: 20,
+    paddingLeft: 20,
+    paddingRight: 20,
   },
   media: {
     height: 460,
@@ -24,6 +26,10 @@ const styles = {
   },
   title: {
     color: "#5E464D"
+  },
+  owner: {
+    color: "#5E464D",
+    fontSize: "14"
   }
 };
 
@@ -33,6 +39,7 @@ class TruffleDetail extends Component {
     
     const { CryptoTruffles } = this.props.drizzle.contracts;
     this.dataKey = CryptoTruffles.methods.getTruffle.cacheCall(this.props.match.params.id);
+    this.ownerKey = CryptoTruffles.methods.ownerOf.cacheCall(this.props.match.params.id);
   }
 
   render() {
@@ -40,17 +47,18 @@ class TruffleDetail extends Component {
     const { CryptoTruffles } = this.props.drizzleState.contracts;
 
     // If the data isn't here yet, show loading
-    if(!(this.dataKey in CryptoTruffles.getTruffle)) {
+    if(!(this.dataKey in CryptoTruffles.getTruffle) || !(this.ownerKey in CryptoTruffles.ownerOf)) {
       return (
         <span>Loading...</span>
       )
     }
 
     const contract = CryptoTruffles.getTruffle[this.dataKey];
+    const owner = CryptoTruffles.ownerOf[this.ownerKey];
 
-    var title = contract.value["title"];
-    var color = contract.value["color"];
-    var emotion = contract.value["emotion"];
+    const title = contract.value["title"];
+    // const color = contract.value["color"];
+    const emotion = contract.value["emotion"];
     
     const { classes } = this.props;
 
@@ -67,6 +75,9 @@ class TruffleDetail extends Component {
                         <CardContent>
                         <Typography gutterBottom variant="h5" component="h2" className={classes.title}>
                             {title}
+                        </Typography>
+                        <Typography gutterBottom className={classes.owner}>
+                            <strong>Owned by</strong> {owner.value}
                         </Typography>
                         </CardContent>
                     </CardActionArea>

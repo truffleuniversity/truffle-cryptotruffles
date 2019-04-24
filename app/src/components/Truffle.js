@@ -52,7 +52,7 @@ class Truffle extends Component {
     const contract = CryptoTruffles.getTruffle[this.dataKey];
 
     var title = contract.value["title"];
-    var color = contract.value["color"];
+    // var color = contract.value["color"];
     var emotion = contract.value["emotion"];
     
     const { classes } = this.props;
@@ -74,7 +74,6 @@ class Truffle extends Component {
               variant="h5" 
               component="h2"
               className={classes.title}
-              component={Link} 
               to={`/truffle/${this.props.truffleId}`}>
                 {title}
             </Typography>
