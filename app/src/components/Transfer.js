@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import withDrizzle from '../DrizzleContainer';
 
 import PropTypes from 'prop-types';
@@ -6,6 +6,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const styles = theme => ({
     container: {
@@ -53,7 +56,7 @@ class Transfer extends Component {
         const from = this.props.drizzle.web3.eth.accounts.givenProvider.selectedAddress;
         const to = this.state.address;
 
-        const stackId = CryptoTruffles.methods.transferFrom.cacheSend(
+        CryptoTruffles.methods.transferFrom.cacheSend(
             from,
             to,
             truffleId,
@@ -65,40 +68,43 @@ class Transfer extends Component {
         const { classes } = this.props;
 
         return (
-            <Grid container justify="center" direction="row" spacing={16}>
-                <Grid item>
-                    <h2>Transfer</h2>
-                    <p>Who's the lucky person?</p>
-                    <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit}>
-                        <Grid container justify="center" spacing={8}>
-                            <Grid item xs={8}>
-                                <TextField
-                                        id="outlined-name"
-                                        label="Destination Address"
-                                        InputProps={{
-                                            classes: {
-                                            notchedOutline: classes.notchedOutline,
-                                            input: classes.multilineColor
-                                            }
-                                        }}
-                                        InputLabelProps={{
-                                            className: classes.floatingLabelFocusStyle,
-                                        }}
-                                        value={this.state.address}
-                                        onChange={this.handleChange('address')}
-                                        margin="normal"
-                                        variant="outlined"
-                                    />
+            <Fragment>
+                <ToastContainer />
+                <Grid container justify="center" direction="row" spacing={16}>    
+                    <Grid item>
+                        <h2>Transfer</h2>
+                        <p>Who's the lucky person?</p>
+                        <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+                            <Grid container justify="center" spacing={8}>
+                                <Grid item xs={8}>
+                                    <TextField
+                                            id="outlined-name"
+                                            label="Destination Address"
+                                            InputProps={{
+                                                classes: {
+                                                notchedOutline: classes.notchedOutline,
+                                                input: classes.multilineColor
+                                                }
+                                            }}
+                                            InputLabelProps={{
+                                                className: classes.floatingLabelFocusStyle,
+                                            }}
+                                            value={this.state.address}
+                                            onChange={this.handleChange('address')}
+                                            margin="normal"
+                                            variant="outlined"
+                                        />
+                                    </Grid>
+                                <Grid item xs={8}>
+                                    <Button type="submit" variant="contained" className={classes.button}>
+                                        Transfer Truffle
+                                    </Button>
                                 </Grid>
-                            <Grid item xs={8}>
-                                <Button type="submit" variant="contained" className={classes.button}>
-                                    Transfer Truffle
-                                </Button>
                             </Grid>
-                        </Grid>
-                    </form>
+                        </form>
+                    </Grid>
                 </Grid>
-            </Grid>
+            </Fragment>
         );
     }
 }

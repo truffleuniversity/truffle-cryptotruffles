@@ -5904,12 +5904,12 @@
         }
       },
       "links": {},
-      "address": "0x47E6856bC908CE55AB74AE17583367777E9A3611",
-      "transactionHash": "0xed0ba68911be37bbf35aac224ce1b3bab7b5cb0f23a587ce3609b4e946b01e0b"
+      "address": "0xA680f50661f4925282060603EEaBea176c600103",
+      "transactionHash": "0x90179f84960ad5f0b72f2031607c455628b53531564f69065c2458c11d2861ec"
     }
   },
   "schemaVersion": "3.0.0",
-  "updatedAt": "2019-04-23T18:48:11.233Z",
+  "updatedAt": "2019-05-02T21:34:20.635Z",
   "devdoc": {
     "methods": {
       "approve(address,uint256)": {

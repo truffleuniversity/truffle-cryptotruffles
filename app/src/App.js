@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import './App.css';
 
+import store from './middleware';
+
 import LoadingComponent from './components/LoadingComponent';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -15,6 +17,9 @@ import MyTruffles from './components/MyTruffles';
 import TruffleDetail from './components/TruffleDetail';
 import Transfer from './components/Transfer';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const drizzleStore = generateStore(drizzleOptions);
 const drizzle = new Drizzle(drizzleOptions, drizzleStore);
 
@@ -22,9 +27,10 @@ class App extends Component {
 
   render() {
     return (
-      <DrizzleContext.Provider drizzle={drizzle}>
+      <DrizzleContext.Provider store={store} drizzle={drizzle}>
         <LoadingComponent>
           <div className="App">
+            <ToastContainer />
             <Router>
               <div>
                 <Header />
